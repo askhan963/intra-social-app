@@ -1,26 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
 const LogoutScreen = ({ navigation }) => {
-    
+  useEffect(() => {
+   
+    const timeoutId = setTimeout(() => {
+      navigation.navigate('Home');
+    }, 2000);
 
-    // Redirect to the Home Screen
-    React.useEffect(() => {
-        navigation.navigate('Home'); 
-    }, []);
+    return () => clearTimeout(timeoutId);
+  }, [navigation]);
 
-    return (
-        <View style={styles.container}>
-            <Text>Logging out...</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Logging out...</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#E5E5E5',
+    
+    alignItems: 'center',
+  },
+  text:{
+    color: 'green',
+  }
 });
 
 export default LogoutScreen;

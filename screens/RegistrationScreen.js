@@ -29,7 +29,7 @@ const RegistrationScreen = ({ navigation }) => {
 
     // Function to handle registration
     const handleRegistration = () => {
-        // Create a users table if it doesn't exist
+        
         if (!name || !age || !gender || !phone || !email || !password) {
             Alert.alert("Error", "Please fill the form correctly...");
         }
@@ -119,9 +119,9 @@ const RegistrationScreen = ({ navigation }) => {
             >
                 <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
-            {/* Link to Login Screen */}
+         
             <TouchableOpacity
-                onPress={() => navigation.navigate('Login')} // Navigate to your login screen
+                onPress={() => navigation.navigate('Login')} 
             >
                 <Text style={styles.desc}>
                 Already have an account? 
